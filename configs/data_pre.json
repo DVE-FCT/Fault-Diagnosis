@@ -1,0 +1,31 @@
+{
+  "read": {
+    "nrows": null,
+    "sheet_name": null
+  },
+  "frame": {
+    "frame_length": 1024,
+    "overlap": 0.5,
+    "apply_window": true,
+    "export_csv": true,
+    "csv_path": "data/pre_data/frames.csv"
+  },
+  "label": {
+    "label_map": {
+      "正常": 0,
+      "内圈故障": 1,
+      "外圈故障": 2,
+      "滚动体故障": 3
+    },
+    "num_classes": 4,
+    "shuffle": true,
+    "export_csv": true,
+    "csv_path": "data/pre_data/frames_with_labels.csv"
+  },
+  "split": {
+    "ratios": [0.7, 0.2, 0.1],
+    "shuffle": true,
+    "export_excel": true,
+    "excel_path": "data/pre_data/dataset_split.xlsx"
+  }
+}
