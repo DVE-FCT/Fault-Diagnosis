@@ -270,7 +270,7 @@ class DataPre:
                 pd.DataFrame(train).to_excel(writer, sheet_name="train", index=False)
                 pd.DataFrame(test).to_excel(writer, sheet_name="test", index=False)
                 pd.DataFrame(val).to_excel(writer, sheet_name="val", index=False)
-                print("导出数据集到 Excel...")
+                print(f"导出数据集到 Excel 已导出到 {excel_path}")
 
         return train_set, test_set, val_set
 
@@ -311,9 +311,9 @@ class DataPre:
         """
         return np.load(npy_path)
 
-
+# 划分数据并添加标签、导出数据集到 Excel各个 sheet 中
 if __name__ == "__main__":
-    # 使用示例：
+    print("开始处理数据集...")
     sig1_path = "C:/Users/lenovo/Desktop/paper/Fault-Diagnosis/data/JNU/ib600_2.csv"
     sig2_path = "C:/Users/lenovo/Desktop/paper/Fault-Diagnosis/data/JNU/ob600_2.csv"
     sig3_path = "C:/Users/lenovo/Desktop/paper/Fault-Diagnosis/data/JNU/tb600_2.csv"
@@ -324,3 +324,4 @@ if __name__ == "__main__":
     frames_labeled, labels = pre.assign_labels(frames)
     (train_X, train_y), (test_X, test_y), (val_X, val_y) = pre.split_dataset(frames_labeled, labels)
     print(f"train: {train_X.shape}, test: {test_X.shape}, val: {val_X.shape}")
+    print("数据处理完成" + "\n" + "-"*50)
